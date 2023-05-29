@@ -1,0 +1,231 @@
+:root {
+    --bgColor: #f8f5d7;
+    --logoTextColor: #173423;
+    --articleTextColor: #000000;
+    --additionalInfoTextColor: #1f1d1a;
+    --articleTextHoverColor: #0e29b5;
+    --inputBoxBlur: #fcfae4;
+    --borderColor: #1f1d1a;
+    --articleTitleHoverBgColor: #fffaeb;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noticia Text', serif;
+    font-family: 'News Cycle', sans-serif;
+    font-family: 'Newsreader', serif;
+    background-color: var(--bgColor);
+    border-radius: 0;
+    outline: none;
+    text-align: center;
+    text-decoration: none;
+}
+
+a {
+    color: inherit;
+}
+
+nav {
+    margin-top:0.5em;
+    display:flex;
+    flex-direction: column;
+    color: var(--logoTextColor);
+    font-weight: bold;
+    font-size:3em;
+    gap: 0.5em;
+}
+
+nav hr {
+    border-top: 1px solid var(--borderColor);
+    border-bottom: 0px;
+}
+
+.queryArea {
+    display: flex;
+    flex-direction: column;
+    margin-top: 4em;
+    gap: 1em;
+}
+
+.queryArea input, .queryArea button {
+    border: 1px solid var(--borderColor);
+}
+
+.queryArea input {
+    background-color: var(--inputBoxBlur);
+    width: 40em;
+    font-size: large;
+    border-inline-end: 0;
+    text-align: left;
+    padding: 1em 1em 1em 2em;
+}
+
+.queryArea input:focus {
+    background-color: var(--bgColor);
+}
+
+form {
+    display: flex;
+    justify-content: center;
+}
+
+form button {
+    padding-left:3em;
+    padding-right: 3em;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.countryButtons{
+    display:flex;
+    justify-content: center;
+    margin-top: 1em;
+}
+
+.countryButtons button {
+    padding-top: auto;
+    padding-bottom: auto;
+    width:10em;
+    height: 2.8em;
+    font-weight: bold;
+    font-size: large;
+    margin-left: 1em;
+    margin-right: 1.5em;
+}
+
+.articlesSection {
+    display: flex;
+    margin-top: 6em;
+}
+
+.articlesSidePanel{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px dotted var(--borderColor);
+}
+
+.articlesSidePanel hr {
+    border-top: 1px dotted var(--borderColor);
+    border-bottom: 0px;
+    width: 100em;
+}
+
+.sideArticle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2em;
+    margin-bottom: 2em;
+    overflow: hidden
+}
+
+.sideArticleTitle {
+    font-weight: bold;
+    font-size: 1.1em;
+    text-align: left;
+    padding-left: 1em;
+    padding-right: 1em;
+    transition: all 200ms ease-in 0s;
+    overflow: hidden;
+}
+
+.sideArticle:hover .sideArticleTitle {
+    box-shadow: inset 100em 0 0 0 var(--articleTitleHoverBgColor);
+    color: var(--articleTextHoverColor);
+}
+
+.articles{
+    width: 80%;
+}
+
+.articles hr, .articlesSidePanel hr {
+    border-top: 1px dotted var(--borderColor);
+    border-bottom: 0px;
+    width: 100em;
+    margin-left: auto;
+    margin-right:auto;
+}
+
+.article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4em;
+    margin-bottom: 5em;
+    overflow: hidden;
+}
+
+.articleContent {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    margin-left: 2.5em;
+    margin-right: 2.5em;
+    overflow:hidden;
+}
+
+.articleImage {
+    width: 30em;
+    height: 20em;
+}
+
+.vl {
+    border-left: 1px dotted var(--borderColor);;
+    height: 20em;
+    
+}
+
+.articleTextContent {
+    height: 20em;
+    display: flex;
+    flex-direction: column;
+    gap:1em;
+    overflow:hidden;
+}
+
+.articleTitle {
+    font-weight: bold;
+    font-size: 2em;
+    text-align: left;
+    transition: all 200ms ease-in 0s;
+    overflow:hidden;
+}
+
+.articleMetaInfo {
+    display: flex;
+    gap: 1em;
+    color: var(--additionalInfoTextColor);
+    font-weight: bold;
+    transition: all 200ms linear 0s;
+    overflow:hidden;
+}
+
+.articleDescription {
+    font-size: 1.5em;
+    text-align: left;
+    overflow: hidden;
+    transition: all 200ms linear 0s;
+}
+
+.articleContent:hover .articleTitle {
+    box-shadow: inset 100em 0 0 0 var(--articleTitleHoverBgColor);
+    color: var(--articleTextHoverColor);
+}
+
+.articleContent:hover .articleMetaInfo {
+    color: var(--articleTextHoverColor);
+}
+
+.articleContent:hover .articleDescription {
+    color: var(--articleTextHoverColor);
+}
+
+.queryError {
+    display:flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
