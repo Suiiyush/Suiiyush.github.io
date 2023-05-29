@@ -218,7 +218,10 @@ async function getArticles(url){
             return;
         }
 
-        for(let Article of articles){
+        for(let i = 0; i < articles.length; i++){
+            let Article = articles[i]; 
+            if(i != 0 && Article.title == articles[i-1].title) continue;
+
             // Creatign the article HTML structure
             let article = makeArticle(Article);
             if(url==topHeadLines){
