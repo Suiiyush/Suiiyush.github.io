@@ -1,7 +1,8 @@
 
 
 //const API_KEY = '44d55d61aa6741c3bfdb3d176b947432';
-const API_KEY = 'bRDOlIlapSXvKvx_X8u7Fcoh1SIhqjBAaQz3rrM_blE';
+//const API_KEY = 'bRDOlIlapSXvKvx_X8u7Fcoh1SIhqjBAaQz3rrM_blE';
+const API_KEY= 'aba7de93b35877322414eac4926199b5';
 
 
 const defaultArticleDescription = "This is one of the top articles from its category. To know more about what this article is all about click to read it.";
@@ -10,15 +11,17 @@ function getApiKey() {
     return API_KEY;
 }
 
-const baseURL = "https://api.newscatcherapi.com/v2/";
-const topHeadLines = `https://api.newscatcherapi.com/v2/latest_headlines?lang=en`;
+const baseURL = "http://api.mediastack.com/v1/news?access_key=";
+const topHeadLines = `http://api.mediastack.com/v1/news?access_key=aba7de93b35877322414eac4926199b5`;
 
 function getFetchURL(baseURL, type, parameter) {
     let url = baseURL;
+    parameter = parameter.toLowerCase();
+    
+    if(type=='countries') url+=(getApiKey()+'&' + type + '=' + parameter);
+    else if(type=='keywords') url+=(getApiKey()+'&' + type + '=' + parameter);
 
-    if(type=='countries') url+=('latest_headlines?' + type + '=' + parameter);
-    else if(type=='search') url+=(type + '?q' + '=' + parameter);
-
+    console.log(url);
     return url;
 }
 
@@ -128,21 +131,21 @@ function makeArticle(Article) {
 
     let articleAuthor = makeArticleAuthor(Article.author);
 
-    let articlePublication = makeArticlePublication(Article.topic);
+    let articlePublication = makeArticlePublication(Article.source);
 
     let articleMetaInfo = makeArticleMetaInfo(articleAuthor, articlePublication);
 
     let articleTitle = makeArticleTitle(Article.title);
 
-    let articleDescription = makeArticleDescription(Article.excrept);
+    let articleDescription = makeArticleDescription(Article.description);
 
     let articleTextContent = makeArticleTextContent(articleTitle, articleMetaInfo, articleDescription);
 
     let vl = makeVl();
 
-    let articleImage = makeArticleImage(Article.media);
+    let articleImage = makeArticleImage(Article.image);
 
-    let articleContent = makeArticleContent(articleImage, vl, articleTextContent, Article.link);
+    let articleContent = makeArticleContent(articleImage, vl, articleTextContent, Article.url);
 
     let hr = makeHr();
 
@@ -200,19 +203,15 @@ function makeQueryError() {
 
 async function getArticles(url){
 
-    let response  = await fetch(url, {
-        headers: {
-            'x-api-key': getApiKey()
-        },
-    });
+    let response  = await fetch(url);
 
     if(response.status >= 200 && response.status <= 300){
 
         const jsonObject = await response.json();
-        const articles = jsonObject.articles;
+        const articles = jsonObject.data;
         clearCurrentArticles();
 
-        if(jsonObject.totalResults  == 0) {
+        if(articles.length  == 0) {
             let queryError = makeQueryError();
             showQueryError(queryError);
             return;
@@ -245,7 +244,7 @@ form.addEventListener("submit", function(event) {
     const parameter= encodeURIComponent(input.value);
     input.value = "";
 
-    const url = getFetchURL(baseURL, 'search', parameter);
+    const url = getFetchURL(baseURL, 'keywords', parameter);
     getArticles(url);
 });
 
@@ -260,5 +259,5 @@ countryButtons.addEventListener("click", function(event) {
     getArticles(url);
 });
 
-getArticles(topHeadLines);
+getArticles(baseURL+getApiKey());
 
