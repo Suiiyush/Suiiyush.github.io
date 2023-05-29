@@ -2,7 +2,8 @@
 
 //const API_KEY = '44d55d61aa6741c3bfdb3d176b947432';
 //const API_KEY = 'bRDOlIlapSXvKvx_X8u7Fcoh1SIhqjBAaQz3rrM_blE';
-const API_KEY= 'aba7de93b35877322414eac4926199b5';
+//const API_KEY= 'aba7de93b35877322414eac4926199b5';
+const API_KEY = 'pub_23651e6d2b637e24b1a03a3eaa1ec3aea5448';
 
 
 const defaultArticleDescription = "This is one of the top articles from its category. To know more about what this article is all about click to read it.";
@@ -11,15 +12,15 @@ function getApiKey() {
     return API_KEY;
 }
 
-const baseURL = "http://api.mediastack.com/v1/news?access_key=";
-const topHeadLines = `http://api.mediastack.com/v1/news?access_key=aba7de93b35877322414eac4926199b5`;
+const baseURL = "https://newsdata.io/api/1/news?apikey=";
+const topHeadLines = `https://newsdata.io/api/1/news?apikey=pub_23651e6d2b637e24b1a03a3eaa1ec3aea5448`;
 
 function getFetchURL(baseURL, type, parameter) {
     let url = baseURL;
     parameter = parameter.toLowerCase();
     
-    if(type=='countries') url+=(getApiKey()+'&' + type + '=' + parameter);
-    else if(type=='keywords') url+=(getApiKey()+'&' + type + '=' + parameter);
+    if(type=='country') url+=(getApiKey()+'&' + type + '=' + parameter);
+    else if(type=='q') url+=(getApiKey()+'&' + type + '=' + parameter);
 
     console.log(url);
     return url;
@@ -129,9 +130,9 @@ function makeArticle(Article) {
     let article = document.createElement('div');
     article.classList.add('article');
 
-    let articleAuthor = makeArticleAuthor(Article.author);
+    let articleAuthor = makeArticleAuthor(Article.creator);
 
-    let articlePublication = makeArticlePublication(Article.source);
+    let articlePublication = makeArticlePublication(Article.source_id);
 
     let articleMetaInfo = makeArticleMetaInfo(articleAuthor, articlePublication);
 
@@ -143,9 +144,9 @@ function makeArticle(Article) {
 
     let vl = makeVl();
 
-    let articleImage = makeArticleImage(Article.image);
+    let articleImage = makeArticleImage(Article.image_url);
 
-    let articleContent = makeArticleContent(articleImage, vl, articleTextContent, Article.url);
+    let articleContent = makeArticleContent(articleImage, vl, articleTextContent, Article.link);
 
     let hr = makeHr();
 
@@ -208,14 +209,13 @@ async function getArticles(url){
     if(response.status >= 200 && response.status <= 300){
 
         const jsonObject = await response.json();
-        const articles = jsonObject.data;
         clearCurrentArticles();
-
-        if(articles.length  == 0) {
+        if(jsonObject.totalResults  == 0) {
             let queryError = makeQueryError();
             showQueryError(queryError);
             return;
         }
+        const articles = jsonObject.results;
 
         for(let i = 0; i < articles.length; i++){
             let Article = articles[i]; 
@@ -244,7 +244,7 @@ form.addEventListener("submit", function(event) {
     const parameter= encodeURIComponent(input.value);
     input.value = "";
 
-    const url = getFetchURL(baseURL, 'keywords', parameter);
+    const url = getFetchURL(baseURL, 'q', parameter);
     getArticles(url);
 });
 
@@ -254,7 +254,7 @@ countryButtons.addEventListener("click", function(event) {
     let btn = event.target.closest('button');
     if(!btn || !countryButtons.contains(btn)) return false;
     const parameter = btn.getAttribute("code");
-    const url = getFetchURL(baseURL, 'countries', parameter);
+    const url = getFetchURL(baseURL, 'country', parameter);
     console.log(url);
     getArticles(url);
 });
