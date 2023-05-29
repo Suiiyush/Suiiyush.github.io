@@ -170,7 +170,7 @@ function makeSideArticles(Article) {
 
     let sideArticleTitle = document.createElement('a');
     sideArticleTitle.classList.add('sideArticleTitle');
-    sideArticleTitle.setAttribute('href', Article.url);
+    sideArticleTitle.setAttribute('href', Article.link);
     sideArticleTitle.setAttribute('target', '_blank');
 
     let title = document.createTextNode(Article.title);
@@ -245,7 +245,7 @@ form.addEventListener("submit", function(event) {
     const parameter= encodeURIComponent(input.value);
     input.value = "";
 
-    const url = getFetchURL(baseURL, 'q', parameter);
+    const url = getFetchURL(baseURL, 'search', parameter);
     getArticles(url);
 });
 
