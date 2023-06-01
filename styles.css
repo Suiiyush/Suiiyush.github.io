@@ -117,8 +117,9 @@ form button {
     flex-direction: column;
     justify-content: center;
     gap: 2em;
-    margin-bottom: 2em;
-    overflow: hidden
+    margin-bottom: 5em;
+    overflow: hidden;
+    align-items:center;
 }
 
 .sideArticleTitle {
@@ -129,6 +130,7 @@ form button {
     padding-right: 1em;
     transition: all 200ms ease-in 0s;
     overflow: hidden;
+    height: 20.229em;
 }
 
 .sideArticle:hover .sideArticleTitle {
@@ -229,3 +231,31 @@ form button {
     margin-right: auto;
 }
 
+#loading {
+    width: 2rem;
+    height: 2rem;
+    border: 5px solid #f3f3f3;
+    border-top: 6px solid #000000;
+    border-radius: 100%;
+    margin: auto;
+    display: none;
+    animation: spin 1s infinite linear;
+}
+
+#loading.display {
+    display: block;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.selectedButton {
+    background-color: black;
+    color: white;
+}

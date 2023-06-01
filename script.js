@@ -3,8 +3,8 @@
 //const API_KEY = '44d55d61aa6741c3bfdb3d176b947432';
 //const API_KEY = 'bRDOlIlapSXvKvx_X8u7Fcoh1SIhqjBAaQz3rrM_blE';
 //const API_KEY= 'aba7de93b35877322414eac4926199b5';
-const API_KEY = 'pub_23651e6d2b637e24b1a03a3eaa1ec3aea5448';
 
+const API_KEY = 'pub_23651e6d2b637e24b1a03a3eaa1ec3aea5448';
 
 const defaultArticleDescription = "This is one of the top articles from its category. To know more about what this article is all about click to read it.";
 
@@ -15,12 +15,17 @@ function getApiKey() {
 const baseURL = "https://newsdata.io/api/1/news?apikey=";
 const topHeadLines = `https://newsdata.io/api/1/news?apikey=pub_23651e6d2b637e24b1a03a3eaa1ec3aea5448`;
 
+let country = null;
+let searchQuery = null;
+
 function getFetchURL(baseURL, type, parameter) {
     let url = baseURL;
     parameter = parameter.toLowerCase();
+
+    console.log(`country: ${country}, search:${searchQuery}`);
     
-    if(type=='country') url+=(getApiKey()+'&' + type + '=' + parameter);
-    else if(type=='q') url+=(getApiKey()+'&' + type + '=' + parameter);
+    if(type=='country') url+=(getApiKey()+'&' + type + '=' + parameter + `${searchQuery!=null ? '&q=' + searchQuery : ''}`);
+    else if(type=='q') url+=(getApiKey()+'&' + type + '=' + parameter + `${country!=null ? '&country=' + country : ''}`);
 
     console.log(url);
     return url;
@@ -202,8 +207,18 @@ function makeQueryError() {
     return queryError;
 }
 
-async function getArticles(url){
+let loading = document.querySelector("#loading");
 
+function displayLoading() {
+    loading.classList.add('display');
+}
+
+function hideLoading() {
+    loading.classList.remove('display')
+}
+
+async function getArticles(url){
+    displayLoading();
     let response  = await fetch(url);
 
     if(response.status >= 200 && response.status <= 300){
@@ -231,6 +246,7 @@ async function getArticles(url){
             // Listing the article on homepage
             showArticle(article);
         }
+        hideLoading();
 
     } else {
         console.log(response.status + ' : ' + response.statusText);
@@ -242,7 +258,7 @@ form.addEventListener("submit", function(event) {
     event.preventDefault();
     let input = form.firstElementChild;
     const parameter= encodeURIComponent(input.value);
-    input.value = "";
+    searchQuery= parameter;
 
     const url = getFetchURL(baseURL, 'q', parameter);
     getArticles(url);
@@ -253,7 +269,9 @@ let countryButtons = document.getElementsByClassName('countryButtons')[0];
 countryButtons.addEventListener("click", function(event) {
     let btn = event.target.closest('button');
     if(!btn || !countryButtons.contains(btn)) return false;
+    btn.classList.add('selectedButton')
     const parameter = btn.getAttribute("code");
+    country = parameter.toLowerCase();
     const url = getFetchURL(baseURL, 'country', parameter);
     console.log(url);
     getArticles(url);
