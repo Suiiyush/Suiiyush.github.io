@@ -267,9 +267,14 @@ form.addEventListener("submit", function(event) {
 
 let countryButtons = document.getElementsByClassName('countryButtons')[0];
 countryButtons.addEventListener("click", function(event) {
-    let btn = event.target.closest('button');
-    if(!btn || !countryButtons.contains(btn)) return false;
-    btn.classList.add('selectedButton')
+    if(event.target.tagName != 'BUTTON') return false;
+    let btn = event.target;
+    console.log(btn);
+    let buttons = document.getElementsByClassName('countryButtons')[0].children;
+    for(let button of buttons) {
+        if(button != btn) button.classList.remove('selectedButton');
+        else button.classList.add('selectedButton');
+    }
     const parameter = btn.getAttribute("code");
     country = parameter.toLowerCase();
     const url = getFetchURL(baseURL, 'country', parameter);
