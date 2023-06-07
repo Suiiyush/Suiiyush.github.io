@@ -1,4 +1,3 @@
-let token;
 const url = 'https://prod-gitlab.sprinklr.com/api/graphql';
 
 const input = document.getElementById('input');
