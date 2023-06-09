@@ -34,6 +34,8 @@ if(params.get("code") || localStorage.getItem('access_token')){
 
     const textareaAtlassian = document.createElement('textarea');
     textareaAtlassian.setAttribute('id', 'textareaAtlassian');
+    textareaAtlassian.setAttribute('rows', 10);
+    textareaAtlassian.setAttribute('cols, 100);
     textareaAtlassian.setAttribute('placeholder', 'query example { tenantContexts(hostNames:["sprinklr.atlassian.net"]) {cloudId}}');
     atlassian.appendChild(textareaAtlassian);
 
