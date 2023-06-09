@@ -1,11 +1,8 @@
 const callbackURL = 'https://suiiyush.github.io/GraphQLFetchTest/index.html';
 let access_token;
+let params = new URLSearchParams(document.location.search);
 
-if(localStorage.getItem('access_token') && !window.location.href.startsWith(callbackURL)){
-    window.location.href = callbackURL;
-}
-
-if(window.location.href.startsWith(callbackURL)) {
+if(window.location.href.startsWith(callbackURL) && (params.get("code") || localStorage.getItem('access_token'))){
     if(!localStorage.getItem('access_token')) {
         let params = new URLSearchParams(document.location.search);
         let code = params.get("code");
