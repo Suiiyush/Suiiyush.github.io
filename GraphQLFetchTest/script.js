@@ -1,5 +1,5 @@
 const urlGitLab = 'https://prod-gitlab.sprinklr.com/api/graphql';
-const urlAtlassian = 'https://sprinklr.atlassian.net/gateway/api/graphql';
+const urlAtlassian = 'https://api.atlassian.com/graphql';
 
 const inputGitLab = document.getElementById('inputGitLab');
 const buttonGitLab = document.getElementById('buttonGitLab');
