@@ -31,7 +31,7 @@ if(window.location.href.startsWith(callbackURL) && (params.get("code") || localS
     const atlassian = document.getElementById('atlassian');
     atlassian.innerHTML = '';
 
-    const textareaAtlassian = document.createaElement('textarea');
+    const textareaAtlassian = document.createElement('textarea');
     textareaAtlassian.setAttribute('id', 'textareaAtlassian');
     textareaAtlassian.setAttribute('placeholder', 'query example { tenantContexts(hostNames:["sprinklr.atlassian.net"]) {cloudId}}');
     atlassian.appendChild(textareaAtlassian);
