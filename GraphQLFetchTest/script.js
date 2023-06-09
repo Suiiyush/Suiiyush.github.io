@@ -45,7 +45,7 @@ if(window.location.href.startsWith(callbackURL) && (params.get("code") || localS
 }
 
 const authenticateAtlassian  = document.getElementById('authenticateAtlassian') || undefined;
-const buttonGitLab = document.getElementById('buttonGitlab');
+const buttonGitLab = document.getElementById('buttonGitLab');
 
 if(authenticateAtlassian) authenticateAtlassian.addEventListener('click', OAuthenticateAtlassian);
 buttonGitLab.addEventListener('click', fetchGitlab);
