@@ -1,3 +1,4 @@
+if(localStorage.getItem('access_token') === undefined) localStorage.removeItem('access_token');
 const callbackURL = 'https://suiiyush.github.io/GraphQLFetchTest/index.html';
 let access_token;
 let params = new URLSearchParams(document.location.search);
