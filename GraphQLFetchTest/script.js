@@ -1,6 +1,5 @@
 if(localStorage.getItem('access_token') === undefined) localStorage.removeItem('access_token');
 const callbackURL = 'https://suiiyush.github.io/GraphQLFetchTest/index.html';
-let access_token;
 let params = new URLSearchParams(document.location.search);
 
 if(params.get("code") || localStorage.getItem('access_token')){
@@ -24,9 +23,7 @@ if(params.get("code") || localStorage.getItem('access_token')){
                 "redirect_uri": `${CALLBACK_URL}`,
             }),
         }).then(response => response.json())
-          .then(response => {access_token = response.access_token; localStorage.setItem('access_token', access_token);});
-    } else {
-        access_token = localStorage.getItem('access_token');
+          .then(response => localStorage.setItem('access_token', response.access_token));
     }
 
     const atlassian = document.getElementById('atlassian');
@@ -81,7 +78,6 @@ function fetchGitlab() {
 
 function fetchAtlassian() {
     const urlAtlassian = 'https://api.atlassian.com/graphql';
-    const token = localStorage.getItem('access_token');
     const textarea = document.getElementById('textareaAtlassian') || undefined;
 
     if(!textarea) return;
@@ -91,7 +87,7 @@ function fetchAtlassian() {
     fetch(urlAtlassian, {
     method: 'POST',
     headers: {
-        'Authorization': `Bearer ${token}`,
+        'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
         'Content-Type': 'application/json',
     },
     body: JSON.stringify({
