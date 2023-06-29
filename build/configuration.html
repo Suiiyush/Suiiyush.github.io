@@ -20,7 +20,7 @@
          * the settings selected by the user.
          */
         microsoftTeams.pages.config.registerOnSaveHandler((saveEvent) => {
-          const baseUrl = `https://${window.location.hostname}:${window.location.port}`;
+          const baseUrl = `https://${window.location.hostname}/build`;
           microsoftTeams.pages.config
             .setConfig({
               suggestedDisplayName: "Teams-PR-Manager",
