@@ -19,7 +19,7 @@
          * This allows for the addition of query string parameters based on
          * the settings selected by the user.
          */
-        pages.config.registerOnSaveHandler((saveEvent) => {
+        microsoftTeams.pages.config.registerOnSaveHandler((saveEvent) => {
           const baseUrl = `https://${window.location.hostname}:${window.location.port}`;
           pages.config
             .setConfig({
@@ -39,7 +39,7 @@
          * to be valid.  This will enable the save button in the configuration
          * dialog.
          */
-        pages.config.setValidityState(true);
+        microsoftTeams.pages.config.setValidityState(true);
       });
     </script>
   </head>
