@@ -21,7 +21,7 @@
          */
         microsoftTeams.pages.config.registerOnSaveHandler((saveEvent) => {
           const baseUrl = `https://${window.location.hostname}:${window.location.port}`;
-          pages.config
+          microsoftTeams.pages.config
             .setConfig({
               suggestedDisplayName: "Teams-PR-Manager",
               entityId: "Test",
