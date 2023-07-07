@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atlassian authentication start</title>
+  </head>
+  <body>
+    <script
+      src="https://res.cdn.office.net/teams-js/2.7.1/js/MicrosoftTeams.min.js"
+      integrity="sha384-4Gy2G+qxzDVdrdemcVqKVQvaSK1Ghg3x6xcsaMLPc/pw7KPtiogHGM97LTWF2PWg"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript">
+      const ATL_CLIENT_ID = "HVy47ZY8PgWcRQRLs5VC8RwdqvuFRRbW";
+      const ATL_AUTH_CODE_SCOPES = encodeURIComponent(
+        "offline_access read:jira-work"
+      );
+      // const ATL_AUTH_CODE_REDIRECT_URI = encodeURIComponent(
+      //   "https://localhost:53000/atlassian-auth-end.html"
+      // );
+
+      const ATL_AUTH_CODE_REDIRECT_URI = encodeURIComponent(
+        "https://suiiyush.github.io/teams-pr-manager-test1/atlassian-auth-end.html"
+      );
+
+      microsoftTeams.app.initialize().then(async () => {
+        const randomString = (length, chars) => {
+          var result = "";
+          for (var i = length; i > 0; --i)
+            result += chars[Math.floor(Math.random() * chars.length)];
+          return result;
+        };
+        const STATE = randomString(
+          15,
+          "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        );
+        window.location.assign(
+          `https://auth.atlassian.com/authorize?audience=api.atlassian.com&client_id=${ATL_CLIENT_ID}&scope=${ATL_AUTH_CODE_SCOPES}&redirect_uri=${ATL_AUTH_CODE_REDIRECT_URI}&state=${STATE}&response_type=code&prompt=consent`
+        );
+      });
+    </script>
+  </body>
+</html>
