@@ -45,8 +45,8 @@
             //redirectUri: window.location.origin + `/auth-end.html?clientId=${clientId}`,
             redirectUri:
               window.location.origin +
-              window.location.pathname +
-              `auth-end.html?clientId=${clientId}`,
+              "teams-pr-manager-test1" +
+              `/auth-end.html?clientId=${clientId}`,
             loginHint: loginHint,
           };
           await msalInstance.loginRedirect(scopesRequest);
