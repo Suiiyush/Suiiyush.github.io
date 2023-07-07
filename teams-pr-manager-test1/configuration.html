@@ -15,7 +15,8 @@
     <script type="text/javascript">
       microsoftTeams.app.initialize().then(() => {
         microsoftTeams.pages.config.registerOnSaveHandler((saveEvent) => {
-          const baseUrl = `https://${window.location.hostname}:${window.location.port}`;
+          // const baseUrl = `https://${window.location.hostname}:${window.location.port}`;
+          const baseUrl = `https://${window.location.hostname}:${window.location.port}/teams-pr-manager-test1`;
           microsoftTeams.pages.config
             .setConfig({
               suggestedDisplayName: "Pull requests",
