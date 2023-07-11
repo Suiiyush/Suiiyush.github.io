@@ -13,21 +13,17 @@
       crossorigin="anonymous"
     ></script>
     <script type="text/javascript">
-      const ATL_CLIENT_ID = "oDw4QhW5t8135WXarJv2IdcfNTseeMdM";
+      // THIS CONSTANT NEEDS TO BE CHANGED ON CHANGING THE OAUTH INTEGRATION ON ATLASSIAN DEVELOPER CONSOLE
+      const ATL_CLIENT_ID = "HVy47ZY8PgWcRQRLs5VC8RwdqvuFRRbW";
+
       const ATL_AUTH_CODE_SCOPES = encodeURIComponent(
         "offline_access read:jira-work"
       );
 
-      // const ATL_AUTH_CODE_REDIRECT_URI = encodeURIComponent(
-      //   "https://localhost:53000/atlassian-auth-end.html"
-      // );
-
-      // const ATL_AUTH_CODE_REDIRECT_URI = encodeURIComponent(
-      //   "https://suiiyush.github.io/teams-pr-manager-test1/atlassian-auth-end.html"
-      // );
-
       const ATL_AUTH_CODE_REDIRECT_URI = encodeURIComponent(
-        "https://suiiyush.github.io/teams-pr-manager-sprtest/atlassian-auth-end.html"
+        window.location.origin +
+          window.location.pathname.slice(0, -25) +
+          "/atlassian-auth-end.html"
       );
 
       microsoftTeams.app.initialize().then(async () => {

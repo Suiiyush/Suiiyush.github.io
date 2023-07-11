@@ -42,15 +42,9 @@
           const scopesArray = scope.split(" ");
           const scopesRequest = {
             scopes: scopesArray,
-            // redirectUri:
-            //   window.location.origin + `/auth-end.html?clientId=${clientId}`,
-            // redirectUri:
-            //   window.location.origin +
-            //   "/teams-pr-manager-test1" +
-            //   `/auth-end.html?clientId=${clientId}`,
             redirectUri:
               window.location.origin +
-              "/teams-pr-manager-sprtest" +
+              window.location.pathname.slice(0, -16) +
               `/auth-end.html?clientId=${clientId}`,
             loginHint: loginHint,
           };
