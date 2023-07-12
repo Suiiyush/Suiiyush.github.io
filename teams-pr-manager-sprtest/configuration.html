@@ -13,11 +13,10 @@
       crossorigin="anonymous"
     ></script>
     <script type="text/javascript">
+      console.log(window.location.origin + window.location.pathname);
       microsoftTeams.app.initialize().then(() => {
         microsoftTeams.pages.config.registerOnSaveHandler((saveEvent) => {
-          console.log(window.location);
-          const baseUrl =
-            window.location.origin + window.location.pathname.slice(0, -20);
+          const baseUrl = window.location.origin + window.location.pathname;
           microsoftTeams.pages.config
             .setConfig({
               suggestedDisplayName: "Pull requests",
