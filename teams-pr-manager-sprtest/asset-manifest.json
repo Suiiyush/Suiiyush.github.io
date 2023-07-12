@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.js": "./static/js/main.1d86ba9f.js",
+    "main.js": "./static/js/main.ce1ceaad.js",
     "static/media/404.svg": "./static/media/404.aae94ec3f0a5dd3c0d324235cf3f55d9.svg",
     "static/media/atlassian-logo-blue.svg": "./static/media/atlassian-logo-blue.d7db2ff89c7746840661a29a32f36a60.svg",
     "static/media/no-data.svg": "./static/media/no-data.47daacce82b9997cfdfdf1139e26ae5b.svg",
     "static/media/gitlab-logo-dark.svg": "./static/media/gitlab-logo-dark.bfa2c5de0c39416b48317fb4735ca043.svg",
     "static/media/gitlab-logo-light.svg": "./static/media/gitlab-logo-light.d7c996e05d64fc640e77b543c2bcd546.svg",
     "index.html": "./index.html",
-    "main.1d86ba9f.js.map": "./static/js/main.1d86ba9f.js.map"
+    "main.ce1ceaad.js.map": "./static/js/main.ce1ceaad.js.map"
   },
   "entrypoints": [
-    "static/js/main.1d86ba9f.js"
+    "static/js/main.ce1ceaad.js"
   ]
 }
