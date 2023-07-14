@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "./static/js/main.a4136d78.js",
+    "main.js": "./static/js/main.0d5f2a5e.js",
     "static/media/microsoft-logo.png": "./static/media/microsoft-logo.11139addd79e6cb530a3.png",
     "static/media/404.svg": "./static/media/404.aae94ec3f0a5dd3c0d324235cf3f55d9.svg",
     "static/media/atlassian-logo-blue.svg": "./static/media/atlassian-logo-blue.d7db2ff89c7746840661a29a32f36a60.svg",
@@ -8,9 +8,9 @@
     "static/media/gitlab-logo-dark.svg": "./static/media/gitlab-logo-dark.bfa2c5de0c39416b48317fb4735ca043.svg",
     "static/media/gitlab-logo-light.svg": "./static/media/gitlab-logo-light.d7c996e05d64fc640e77b543c2bcd546.svg",
     "index.html": "./index.html",
-    "main.a4136d78.js.map": "./static/js/main.a4136d78.js.map"
+    "main.0d5f2a5e.js.map": "./static/js/main.0d5f2a5e.js.map"
   },
   "entrypoints": [
-    "static/js/main.a4136d78.js"
+    "static/js/main.0d5f2a5e.js"
   ]
 }
