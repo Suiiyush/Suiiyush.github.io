@@ -19,6 +19,19 @@
         display: flex;
         flex-direction: column;
       }
+      #text {
+        display: flex;
+        align-items: center;
+      }
+      .color-black {
+        color: black;
+      }
+      .color-white {
+        color: white;
+      }
+      #last_h3 {
+        margin-top: 0;
+      }
     </style>
   </head>
   <body>
@@ -27,8 +40,38 @@
       integrity="sha384-4Gy2G+qxzDVdrdemcVqKVQvaSK1Ghg3x6xcsaMLPc/pw7KPtiogHGM97LTWF2PWg"
       crossorigin="anonymous"
     ></script>
+    <div>
+      <img src="../src/assets/sprinklr-logo-color-burst.svg" height="170px" />
+    </div>
+    <div id="text">
+      <h1>PR Manager</h1>
+      <h3>This app can be added to Teams group-chat or Teams channel</h3>
+      <h3 id="last_h3">Please press save to add this app</h3>
+    </div>
     <script type="text/javascript">
-      microsoftTeams.app.initialize().then(() => {
+      microsoftTeams.app.initialize().then(async () => {
+        const context = await microsoftTeams.app.getContext();
+        if (context) {
+          if (context.app.theme === "default") {
+            const h1s = document.getElementsByTagName("h1");
+            for (let h1 of h1s) {
+              h1.classList.add("color-black");
+            }
+            const h3s = document.getElementsByTagName("h3");
+            for (let h3 of h3s) {
+              h3.classList.add("color-black");
+            }
+          } else {
+            const h1s = document.getElementsByTagName("h1");
+            for (let h1 of h1s) {
+              h1.classList.add("color-white");
+            }
+            const h3s = document.getElementsByTagName("h3");
+            for (let h3 of h3s) {
+              h3.classList.add("color-white");
+            }
+          }
+        }
         microsoftTeams.pages.config.registerOnSaveHandler((saveEvent) => {
           const baseUrl =
             window.location.origin +
@@ -49,8 +92,5 @@
         microsoftTeams.pages.config.setValidityState(true);
       });
     </script>
-    <h2>PR Manager</h2>
-    <h5>This app can be added to Teams group-chat or Teams channel</h5>
-    <h5>Please press save to proceed</h5>
   </body>
 </html>
