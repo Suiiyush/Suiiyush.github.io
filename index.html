@@ -18,11 +18,12 @@
         document.body.appendChild(p);
 
         const button = document.createElement("button");
+        button.value = "Open popup";
         const openPopup = () => {
           const popup = window.open(
             "https://Suiiyush.github.io/",
             "popup",
-            "height=300, width=200, location=no"
+            "height700, width=1200, location=no"
           );
           popup.onunload = function () {
             const timeoutId = setTimeout(() => {
