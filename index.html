@@ -2,25 +2,46 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Table of contents</title>
+    <title>Document</title>
   </head>
-
   <body>
-    <ul>
-      <li>
-        <a href="./Archives/index.html">Archives project</a>
-      </li>
-      <li>
-        <a href="./GraphQLFetchTest/index.html">Simple graphQL fetch</a>
-      </li>
-      <li>
-        <a href="./test-react-build/index.html">test-react-build</a>
-      </li>
-      <li>
-        <a href="./msal-test-react/index.html">msal-test-react</a>
-      </li>
-    </ul>
+    <h1>Github static page</h1>
+    <script>
+      const key = "test";
+      if (window.location !== window.parent.location) {
+        const timer = 2000;
+        const p = document.createElement("p");
+        p.innerText = `Opened in an iframe, we will try to read item with key '${key}' from localStorage ${
+          timer / 1000
+        } seconds after closing the popup`;
+        document.body.appendChild(p);
+
+        const button = document.createElement("button");
+        const openPopup = () => {
+          const popup = window.open(
+            "https://Suiiyush.github.io/",
+            "popup",
+            "height=300, width=200, location=no"
+          );
+          popup.onunload = function () {
+            const timeoutId = setTimeout(() => {
+              const item = localStorage.getItem(key);
+              const p = document.createElement("p");
+              p.innerText = `Item with key ${key} read from localStorage is: ${item}`;
+              document.body.appendChild(p);
+            }, timer);
+          };
+        };
+        button.addEventListener("click", openPopup);
+        document.body.appendChild(button);
+      } else {
+        const value = "Test Item";
+        const p = document.createElement("p");
+        p.innerText = `Opened in a popup, we will save '${value} with key '${key}' in local storage`;
+        document.body.appendChild(p);
+        localStorage.setItem(key, value);
+      }
+    </script>
   </body>
 </html>
