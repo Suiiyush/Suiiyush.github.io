@@ -17,13 +17,17 @@
         } seconds after closing the popup`;
         document.body.appendChild(p);
 
+        const src = document.createElement("p");
+        src.innerText = `Location of this iframe window: ${window.location.href}`;
+        document.body.append(src);
+
         const button = document.createElement("button");
         button.innerText = "Open popup";
         const openPopup = () => {
           const popup = window.open(
             "https://Suiiyush.github.io/",
             "popup",
-            "height700, width=1200, location=no"
+            "height700, width=600, location=no"
           );
           popup.onunload = function () {
             const timeoutId = setTimeout(() => {
