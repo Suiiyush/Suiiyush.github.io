@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>LWR App</title>
+  </head>
+  <body class="wrapper">
+    <example-app></example-app>
+  </body>
+  <script
+    type="application/javascript"
+    src="/1/application/amd/l/en-US/ai/example/configuration/ci/-%2F-/s/4786d8e7095e753a44219bc70b1ed9cc/config.js"
+  ></script>
+  <script
+    type="application/javascript"
+    src="/1/resource/amd/lwr-loader-shim.bundle.min.js%2Fv%2F0_11_13/lwr-loader-shim.bundle.min.js"
+  ></script>
+  <script type="application/javascript">
+    /**
+     * Copyright (c) 2021, salesforce.com, inc.
+     * All rights reserved.
+     * SPDX-License-Identifier: MIT
+     * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
+     */
+    /* LWR Error Shim v0.11.13 */
+    !(function () {
+      "use strict";
+      if (!(globalThis.LWR && globalThis.LWR.define)) {
+        const o = new Error("The LWR application failed to bootstrap");
+        if (!globalThis.LWR || !globalThis.LWR.onError) throw o;
+        globalThis.LWR.onError(o);
+      }
+    })();
+  </script>
+  <script
+    type="application/javascript"
+    src="/1/bundle/amd/l/en-US/bi/0/module/mi/%40lwrjs%2Fapp-service%2Fexample%2Fmodule%2Famd%2Fv%2F0_11_13/s/b9ca23b180a88e7c34575ab82d724cac477aebac/bundle_@lwrjs_app-service_example_module_amd.js"
+  ></script>
+  <script
+    type="application/javascript"
+    async
+    src="/1/bundle/amd/l/en-US/bi/0/module/mi/lwc%2Fv%2F5_0_0/s/b005bb4c2c907fd35a0797f2b8899108a9a5b779/bundle_lwc.js"
+  ></script>
+  <script
+    type="application/javascript"
+    async
+    src="/1/bundle/amd/l/en-US/bi/0/module/mi/example%2Fapp%2Fv%2F0_0_1/s/fee583e4d3c55436f733eb2241e73b134e8e8d75/bundle_example_app.js"
+  ></script>
+</html>
