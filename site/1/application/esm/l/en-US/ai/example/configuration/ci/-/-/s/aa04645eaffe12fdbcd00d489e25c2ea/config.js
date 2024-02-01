@@ -1,0 +1,11 @@
+/* This script is generated */
+/* Client Bootstrap configuration */
+globalThis.LWR = globalThis.LWR || {};
+Object.assign(globalThis.LWR, {"appId":"example","bootstrapModule":"@lwrjs/app-service/example/module/esm/v/0_11_13","autoBoot":true,"imports":{"/1/bundle/esm/l/en-US/bi/0/module/mi/%40lwrjs%2Fapp-service%2Fexample%2Fmodule%2Fesm%2Fv%2F0_11_13/s/febb3c52181b71fae48a98c7589bfcc3865fba9b/bundle_@lwrjs_app-service_example_module_esm.js":["@lwrjs/app-service/example/module/esm/v/0_11_13"],"/1/bundle/esm/l/en-US/bi/0/module/mi/example%2Fapp%2Fv%2F0_0_1/s/efa3c171276963a4cdab6e64bcf2ba12c5c9fbdf/bundle_example_app.js":["example/app/v/0_0_1"]},"index":{"@lwrjs/app-service/example/module/esm/v/0_11_13":"/1/module/esm/0/l/en-US/mi/%40lwrjs%2Fapp-service%2Fexample%2Fmodule%2Fesm%2Fv%2F0_11_13/latest/@lwrjs_app-service_example_module_esm.js","example/app/v/0_0_1":"/1/module/esm/0/l/en-US/mi/example%2Fapp%2Fv%2F0_0_1/latest/example_app.js"},"rootComponents":["example/app/v/0_0_1"],"serverData":{},"endpoints":{"uris":{"mapping":"/1/mapping/esm/0/l/en-US/bi/0/mp/","module":"/1/bundle/esm/l/en-US/bi/0/module/mi/"}}});
+globalThis.process = { env: {"NODE_ENV":"prod","SSR":false,"basePath":"","locale":"en-US","assetBasePath":"","uiBasePath":""} };
+globalThis.lwcRuntimeFlags = { ENABLE_MIXED_SHADOW_MODE: false };
+// Appended by Static Site Generator
+if (!globalThis.LWR.imports) { globalThis.LWR.imports = {}; }
+Object.assign(globalThis.LWR.imports, {"/1/bundle/esm/l/en-US/bi/0/module/mi/lwc%2Fv%2F5_0_0/s/b005bb4c2c907fd35a0797f2b8899108a9a5b779/bundle_lwc.js":["lwc/v/5_0_0"],"/1/bundle/esm/l/en-US/bi/0/module/mi/lwr%2FesmLoader%2Fv%2F0_11_13/s/2230bfb03c8e3ba8af3d729269448dfcc96cb27a/bundle_lwr_esmLoader.js":["lwr/esmLoader/v/0_11_13"],"/1/bundle/esm/l/en-US/bi/0/module/mi/lwr%2Fprofiler%2Fv%2F0_11_13/s/2a98d100e431a937fe8d8422d44282255fca5fdf/bundle_lwr_profiler.js":["lwr/profiler/v/0_11_13"]})
+if (!globalThis.LWR.index) { globalThis.LWR.index = {}; }
+Object.assign(globalThis.LWR.index, {"lwc/v/5_0_0":"/1/module/esm/0/l/en-US/mi/lwc%2Fv%2F5_0_0/latest/lwc.js","lwr/esmLoader/v/0_11_13":"/1/module/esm/0/l/en-US/mi/lwr%2FesmLoader%2Fv%2F0_11_13/latest/lwr_esmLoader.js","lwr/profiler/v/0_11_13":"/1/module/esm/0/l/en-US/mi/lwr%2Fprofiler%2Fv%2F0_11_13/latest/lwr_profiler.js"})
