@@ -7,6 +7,7 @@
   </head>
   <body>
     <h1>Github static page</h1>
+    <button onclick="location.href = 'https://suiiyush.github.io/site/';" id="myButton" class="float-left submit-button" >Redirect</button>
     <script>
       const key = "test";
       if (window.location !== window.parent.location) {
@@ -47,6 +48,13 @@
         document.body.appendChild(p);
         localStorage.setItem(key, value);
       }
-    </script>
+      const testFetch = async () => {
+        const respons = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+        const data = await response.json();
+        console.log("testFetch data: ", data);
+      }
+      testFetch();
+      
+     </script>
   </body>
 </html>
