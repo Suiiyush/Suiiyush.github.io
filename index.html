@@ -9,52 +9,12 @@
     <h1>Github static page</h1>
     <button onclick="location.href = 'https://suiiyush.github.io/site/';" id="myButton" class="float-left submit-button" >Redirect</button>
     <script>
-      const key = "test";
-      if (window.location !== window.parent.location) {
-        const timer = 2000;
-        const p = document.createElement("p");
-        p.innerText = `Opened in an iframe, we will try to read item with key '${key}' from localStorage ${
-          timer / 1000
-        } seconds after closing the popup`;
-        document.body.appendChild(p);
-
-        const src = document.createElement("p");
-        src.innerText = `Location of this iframe window: ${window.location.href}`;
-        document.body.append(src);
-
-        const button = document.createElement("button");
-        button.innerText = "Open popup";
-        const openPopup = () => {
-          const popup = window.open(
-            "https://Suiiyush.github.io/",
-            "popup",
-            "height700, width=600, location=no"
-          );
-          popup.onunload = function () {
-            const timeoutId = setTimeout(() => {
-              const item = localStorage.getItem(key);
-              const p = document.createElement("p");
-              p.innerText = `Item with key ${key} read from localStorage is: ${item}`;
-              document.body.appendChild(p);
-            }, timer);
-          };
-        };
-        button.addEventListener("click", openPopup);
-        document.body.appendChild(button);
-      } else {
-        const value = "Test Item";
-        const p = document.createElement("p");
-        p.innerText = `Opened in a popup, we will save '${value} with key '${key}' in local storage`;
-        document.body.appendChild(p);
-        localStorage.setItem(key, value);
-      }
       const testFetch = async () => {
         const respons = await fetch('https://jsonplaceholder.typicode.com/todos/1');
         const data = await response.json();
         console.log("testFetch data: ", data);
       }
       testFetch();
-      
      </script>
   </body>
 </html>
